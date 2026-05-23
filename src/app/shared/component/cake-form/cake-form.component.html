@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-body">
+        <form #cakeForm="ngForm" (ngSubmit)="onAddCake()">
+            <div class="form-group">
+                <label for="cakeName">Cake Name</label>
+                <input
+                ngModel
+                required
+                name="cakeName"
+                type="text" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="flavor">Cake Flavor</label>
+                <input
+                ngModel
+                required
+                name="flavor"
+                type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="price">Cake Price</label>
+                <input
+                ngModel
+                required
+                name="price"
+                type="number" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="weight">Cake Weight</label>
+                <input    
+                ngModel
+                required
+                name="weight"
+                type="nutextmber" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                 <input
+                ngModel
+                required
+                name="imageUrl"
+                type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="isAvailable">Is Active</label>
+               <select name="isAvailable" id="isAvailable" class="form-control" ngModel required>
+                <option [value]="true">Yes</option>
+                <option [value]="false">No</option>
+            </select>
+            </div>
+            <button [disabled]="cakeForm.invalid" type="submit" *ngIf="!isInEditMode" class="w-100" mat-raised-button color="primary">Add Cake</button>
+            <button [disabled]="cakeForm.invalid" type="button" *ngIf="isInEditMode" class="w-100" mat-raised-button color="warn" (click)="onUpdate()">Update Cake</button>
+        </form>
+    </div>
+</div>

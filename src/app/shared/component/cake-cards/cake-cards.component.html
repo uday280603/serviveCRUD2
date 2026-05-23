@@ -1,0 +1,56 @@
+
+<div class="row" *ngIf="getAllCakes.length > 0 ; else noData">
+  <div class="col-md-4 mb-4" *ngFor="let cake of getAllCakes ;  trackBy trackByFun">
+    <div class="card h-100">
+      <div class="card-header">
+        <strong>{{ cake.cakeName }}</strong>
+      </div>
+
+      <div class="card-body">
+        <img
+          [src]="cake.imageUrl"
+          [alt]="cake.cakeName"
+          class="card-img-top cake-img"
+        />
+
+        <div class="mt-2">
+          <h5>
+            Name : {{ cake.cakeName }}
+
+            <strong
+              class="badge"
+              [ngClass]="{
+                'bg-success': cake.isAvailable,
+                'bg-danger': !cake.isAvailable
+              }"
+            >
+              {{ cake.isAvailable ? "Available" : "Not Available" }}
+            </strong>
+          </h5>
+
+          <h6>Flavor : {{ cake.flavor }}</h6>
+
+          <h4>
+            Price :
+            {{ cake.price | currency : "INR" }}
+          </h4>
+        </div>
+      </div>
+
+      <div class="card-footer d-flex justify-content-between">
+        <button mat-raised-button color="primary" (click)="onEditCake(cake)">
+          Edit
+        </button>
+
+        <button mat-raised-button color="warn" (click)="onRemoveCake(cake.cakeId)">
+          Remove
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #noData>
+  <p class="alert alert-danger">NO CAKE AVAILABLE IN STORE...!</p>
+</ng-template>
