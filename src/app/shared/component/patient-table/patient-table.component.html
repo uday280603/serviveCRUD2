@@ -1,0 +1,47 @@
+
+<div class="card" *ngIf="getAllPatients.length > 0 ; else : noData">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Disease</th>
+            <th>Conatct</th>
+            <th>Is Admitted</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let patient of getAllPatients; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ patient.fname }} {{ patient.lname }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ patient.gender }}</td>
+            <td>{{ patient.disease }}</td>
+            <td>{{ patient.contact }}</td>
+            <td>{{ patient.isAdmitted ? "Yes" : "No" }}</td>
+            <td>
+              <button mat-mini-fab color="primary" (click)="onEditPatient(patient)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+            <td>
+                <button mat-mini-fab color="warn" (click)="onRemovePatient(patient.patientId)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <p class="alert alert-danger">NO PATIENT YET...!</p>
+</ng-template>

@@ -1,0 +1,41 @@
+<div class="card" *ngIf="getAllBikes.length > 0 ; else noData">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Bike Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Mileage</th>
+            <th>Is Available</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bike of getAllBikes; let i = index ;  trackBy  trackByFun">
+            <td>{{ i + 1 }}</td>
+            <td>{{ bike.bikeName }}</td>
+            <td>{{ bike.brand }}</td>
+            <td>{{ bike.price | currency: "INR" }}</td>
+            <td>{{ bike.color }}</td>
+            <td>{{ bike.mileage }} km/l</td>
+            <td>{{ bike.isAvailable ? "Yes" : "No" }}</td>
+            <td>
+              <button mat-raised-button color="primary" (click)="onEditBike(bike)"> Edit</button>
+            </td>
+            <td>
+              <button mat-raised-button color="warn" (click)="onRemoveBike(bike.bikeId)">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<ng-template #noData>
+  <p class="alert alert-danger">NO BIKES IN STORE...!</p>
+</ng-template>

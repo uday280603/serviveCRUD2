@@ -1,0 +1,78 @@
+<div class="card">
+  <div class="card-body">
+    <form #bikeForm="ngForm" (ngSubmit)="onAddBike()">
+      <div class="form-group">
+        <label for="bikeName">Bike Name</label>
+        <input
+          ngModel
+          required
+          name="bikeName"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <input ngModel required name="brand" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          ngModel
+          required
+          name="price"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input ngModel required name="color" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="mileage">Mileage</label>
+        <input
+          ngModel
+          required
+          name="mileage"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="isAvailable">Is Available</label>
+        <select
+          ngModel
+          required
+          name="isAvailable"
+          id="isAvailable"
+          class="form-control"
+        >
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
+        </select>
+      </div>
+      <button
+        [disabled]="bikeForm.invalid"
+        type="submit"
+        *ngIf="!isInEditMode"
+        mat-raised-button
+        color="primary"
+        class="w-100"
+      >
+        Add Bike
+      </button>
+      <button
+        [disabled]="bikeForm.invalid"
+        type="button"
+        *ngIf="isInEditMode"
+        mat-raised-button
+        color="accent"
+        class="w-100"
+        (click)="onUpdatedBike()"
+      >
+        Update Bike
+      </button>
+    </form>
+  </div>
+</div>

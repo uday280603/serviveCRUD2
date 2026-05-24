@@ -9,6 +9,12 @@ import { CakeFormComponent } from './shared/component/cake-form/cake-form.compon
 import { MatrialModule } from './shared/moduls/matrial/matrial.module';
 import { FormsModule } from '@angular/forms';
 import { GetConfirmationComponent } from './shared/component/get-confirmation/get-confirmation.component';
+import { PatientDashboardComponent } from './shared/component/patient-dashboard/patient-dashboard.component';
+import { PatientFormComponent } from './shared/component/patient-form/patient-form.component';
+import { PatientTableComponent } from './shared/component/patient-table/patient-table.component';
+import { BikeDashboardComponent } from './shared/component/bike-dashboard/bike-dashboard.component';
+import { BikeTableComponent } from './shared/component/bike-table/bike-table.component';
+import { BikeFormComponent } from './shared/component/bike-form/bike-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { GetConfirmationComponent } from './shared/component/get-confirmation/ge
     CakeDashboardComponent,
     CakeCardsComponent,
     CakeFormComponent,
-    GetConfirmationComponent
+    GetConfirmationComponent,
+    PatientDashboardComponent,
+    PatientFormComponent,
+    PatientTableComponent,
+    BikeDashboardComponent,
+    BikeTableComponent,
+    BikeFormComponent
   ],
   imports: [
     BrowserModule,
