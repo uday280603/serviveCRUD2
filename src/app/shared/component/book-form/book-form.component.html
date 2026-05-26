@@ -1,0 +1,61 @@
+<div class="card">
+  <div class="card-body">
+    <form #bookForm="ngForm" (ngSubmit)="onAddBook()"> 
+      <div class="form-group">
+        <label for="bookName">Book Name</label>
+        <input
+          ngModel
+          required
+          name="bookName"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="author">Book author</label>
+        <input
+          ngModel
+          required
+          name="author"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Book Price</label>
+        <input
+          ngModel
+          required
+          name="price"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="pages">Pages Count</label>
+        <input
+          ngModel
+          required
+          name="pages"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="isAvailable">Is Available</label>
+        <select
+          [ngModel]="true"
+          required
+          name="isAvailable"
+          id="isAvailable"
+          class="form-control"
+        >
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
+        </select>
+      </div>
+      <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="w-100">Add Book</button>
+       <button *ngIf="isInEditMode" mat-raised-button color="accent" class="w-100">Upadet Book</button>
+    </form>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CakeDashboardComponent } from './shared/component/cake-dashboard/cake-dashboard.component';
@@ -15,6 +14,9 @@ import { PatientTableComponent } from './shared/component/patient-table/patient-
 import { BikeDashboardComponent } from './shared/component/bike-dashboard/bike-dashboard.component';
 import { BikeTableComponent } from './shared/component/bike-table/bike-table.component';
 import { BikeFormComponent } from './shared/component/bike-form/bike-form.component';
+import { BookDashboardComponent } from './shared/component/book-dashboard/book-dashboard.component';
+import { BookFormComponent } from './shared/component/book-form/book-form.component';
+import { BookTableComponent } from './shared/component/book-table/book-table.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { BikeFormComponent } from './shared/component/bike-form/bike-form.compon
     PatientTableComponent,
     BikeDashboardComponent,
     BikeTableComponent,
-    BikeFormComponent
+    BikeFormComponent,
+    BookDashboardComponent,
+    BookFormComponent,
+    BookTableComponent
   ],
   imports: [
     BrowserModule,
